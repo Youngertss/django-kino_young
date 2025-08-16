@@ -1,0 +1,42 @@
+{% extends "manager/base.html" %}
+{% load static %}
+{%block initializion%}
+<link rel="stylesheet" href="{% static 'manager/css/help.css' %}">
+
+{%endblock%}
+
+{% block content %}
+<main>
+    {% if request.user.is_support %}
+    <div class="select-chat-wrapper">
+        <div class="select-chat">
+            {%for username in users_list%}
+                {%if username == clientname%}
+                    <a id="selected_user" class="selected_user" href="#">{{username}}</a>
+                {%else%}
+                    <a href="{% url 'help_forsup' clientname=username %}">{{username}}</a>
+                {%endif%}
+            {%endfor%}
+
+        </div>
+    </div>
+    {%else%}
+        <a id="selected_user" href="#"></a>
+    {%endif%}
+    <div class="chat-wrapper">
+        <div class="chat-history">
+            {%for message in chat_history%}
+                <div class="message"><i>{{message.user.username}}</i>: {{message.content}}</div>
+            {%endfor%}
+        </div>
+    </div>
+    <!-- <div class="chat-history">-Привет!</div> -->
+    <input class="input-field" type="text" minlength="1" maxlength="100" size="40" placeholder="Задайте вопрос...">
+    <!-- <div class="text-field-div"></div> -->
+    <div class="act-menu">
+        <button class="button-sub"> Отправить </button>
+    </div>
+</main>
+
+<script src="{% static 'manager/js/help.js' %}"></script>
+{% endblock %}

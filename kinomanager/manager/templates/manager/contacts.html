@@ -1,0 +1,30 @@
+{%extends 'manager/base.html'%}
+{% load static %}
+
+{%block initializion%}
+<link rel="stylesheet" href="{% static 'manager/css/contacts.css' %}">
+
+{%endblock%}
+
+{% block content %}
+
+<main>
+    <div class="center-form">
+        <div class="main-text">Our contacts</div>
+        <div class="name-contacts">
+            <div>Andera</div>
+            <div>Furina</div> 
+        </div>
+        <div class="phone-numbers">
+            <div>098 678 72 22</div> 
+            <div>056 711 23 87</div>
+        </div>
+        {% if request.user.is_authenticated %}
+        <div class="btn-question"><a  href ="{% url 'help' %}" class="realtime-question"><b>Задать вопрос в реальном времени</b></a></div>
+        {% else %}
+        <div class="btn-question"><a  href ="{% url 'login' %}" class="realtime-question"><b>Задать вопрос в реальном времени</b></a></div>
+        {% endif %}
+    </div>
+</main>
+
+{%endblock%}

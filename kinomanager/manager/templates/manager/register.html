@@ -1,0 +1,31 @@
+{%extends 'manager/base.html'%}
+{% load static %}
+
+{%block initializion%}
+<link rel="stylesheet" href="{% static 'manager/css/authentication.css' %}">
+{%endblock%}
+
+{% block content %}
+
+<main>
+    <div class="center-form">
+        <div class="wrapper-form">
+            <p>Регистрация</p>
+            <form method="post">
+                    {%csrf_token%}
+                {% for f in form%}
+                    <div class="input_form">
+                        {{f}}
+                    </div>
+                    <div class="form-error">{{f.errors}}</div>
+                {% endfor %}
+                <div class="input-form">
+                    <input class="button-sub" type="submit" value='Зарегестрироваться'>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+{%endblock%}

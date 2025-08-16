@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'manager/css/main.css' %}">
+    <title>KinoYoung</title>
+    {%block initializion%}
+    {%endblock%}
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div><b><a href ="{% url 'main_page' %}" class="logo">KinoYoung</a></b></div>
+            <nav>
+                <ul>
+                    <li><a href ="{% url 'main_page' %}">Main Page</a></li>
+                    <li><a href ="{% url 'contacts' %}">Contacts</a></li>
+
+                    {% if request.user.is_authenticated %}
+                        <li><a href ="{% url 'help' %}">Помощь</a></li>
+                        <li><a href ="{% url 'logout' %}" class = "username">{{request.user.username}}(выйти)</a></li>
+                    {%else%}
+                        <li><a href ="{% url 'login' %}">Войти</a></li>
+                    {%endif%}
+
+                
+                </ul>
+            </nav>
+        </header>
+
+        <aside class="sidebar">Sidebar</aside>
+        <aside class="sidebar2">Sidebar2</aside>
+        <aside class="ads"><a href="#">Тут могла бы быть твоя реклама!</a></aside>
+
+        {% block content %}
+        {% endblock %}
+
+        <footer>
+            <nav>
+                <ul>
+                    <li><a href ="{% url 'main_page' %}">Main Page</a></li>
+                    <li><a href ="{% url 'contacts' %}">Contacts</a></li>
+                    <li><a href ="{% url 'help' %}">Help</a></li>
+                </ul>
+            </nav>
+            <p>Write by Artur</p>
+        </footer>
+        
+    </div>
+</body>
+</html>

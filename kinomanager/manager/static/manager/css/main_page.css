@@ -1,0 +1,45 @@
+main{
+    grid-area: content;
+    padding:20px;
+    background-image: linear-gradient(to top, #82799a, #edb7ac);
+}
+
+article{
+    margin-top:20px;
+    background-image: -webkit-radial-gradient(#483a71, #2e2546);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left:5px;
+    margin-bottom:5px;
+
+}
+
+.movie h3{
+    font:20px "Futura-Normal";
+    background-image: -webkit-radial-gradient(#452d87, #912510 40%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left:5px;
+    margin-bottom:5px;
+}
+.blog h2{
+    font: 28px "Garamond";
+    background-image: -webkit-radial-gradient(#912510, #452d87);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left:5px;
+}
+.blog h3{
+    margin-left:20px;
+}
+
+.movies-cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,auto));
+    column-gap:20px;
+    row-gap:10px;
+}
+
+.movies-cards img{
+    width:100%;
+}
