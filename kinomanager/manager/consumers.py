@@ -52,7 +52,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
         )
     
     
-    
     async def send_message_users(self, event):
         print("send")
         text= event["text"]
